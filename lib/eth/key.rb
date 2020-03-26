@@ -32,7 +32,7 @@ module Eth
     def self.personal_recover(message, signature, chain_id = nil)
       hash = PersonalMessage.new(message).hash
       bin_sig = Utils.hex_to_bin(signature).bytes.rotate(-1).pack('c*')
-      recover_public_key(hash, bin_sig, chain_id: chain_id)
+      recover_public_key(hash, bin_sig, chain_id)
     end
 
     def initialize(priv: nil)
